@@ -1,0 +1,49 @@
+.TH "Motor" 3 "ME_507_Lab2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Motor \- An implementation of a motor driver using a struct to emulate Object Oriented Programming\&. The motor has 4 parameters, timer which indicates the timer to be used to run the motor, channels, which indicates the channels to be used to run the motor, duty_cycle, the duty cycle to run the motor at, and enable_flag, which determines if the motor is allowed to run\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <motor_driver\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "TIM_HandleTypeDef * \fBtimer\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBchannels\fP"
+.br
+.ti -1c
+.RI "int32_t \fBduty_cycle\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBenable_flag\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+An implementation of a motor driver using a struct to emulate Object Oriented Programming\&. The motor has 4 parameters, timer which indicates the timer to be used to run the motor, channels, which indicates the channels to be used to run the motor, duty_cycle, the duty cycle to run the motor at, and enable_flag, which determines if the motor is allowed to run\&. 
+
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItimer\fP The microcontroller timer to use to control the pwm in the motor\&. This is a timer pointer\&. 
+.br
+\fIchannels\fP The channels the PWM signal should run on\&. 1 corresponds to 1 and 2, and 2 corresponds to 3 and 4\&. 
+.br
+\fIduty_cycle\fP The duty cycle of the motor from -ARR to ARR, which is 1000 
+.br
+\fIenable_flag\fP The flag which indicates whether or not the motor should be allowed to run\&. A zero means the motor is disabled and a one means the motor is enabled\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ME_507_Lab2 from the source code\&.

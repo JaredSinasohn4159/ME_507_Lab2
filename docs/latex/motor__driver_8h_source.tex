@@ -1,0 +1,29 @@
+\doxysection{motor\+\_\+driver.\+h}
+\label{motor__driver_8h_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ SRC\_MOTOR\_DRIVER\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ SRC\_MOTOR\_DRIVER\_H\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//include\ hal\ library}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}stm32L4xx\_hal.h"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00030\ \ \ \ \ TIM\_HandleTypeDef*\ timer;\ \textcolor{comment}{//\ Handle\ to\ the\ HAL\ timer\ object}}
+\DoxyCodeLine{00031\ \ \ \ \ uint8\_t\ \ channels;\ \textcolor{comment}{//\ which\ channels\ to\ use.\ \ using\ channels\ 1-\/4\ so\ 1\ corresponds\ to\ 1\ and\ 2\ and\ 2\ corresponds\ to\ 3\ and\ 4}}
+\DoxyCodeLine{00032\ \ \ \ \ int32\_t\ \ duty\_cycle;\ \textcolor{comment}{//\ duty\ cycle\ of\ the\ motor\ from\ -\/ARR\ to\ ARR,\ which\ is\ 1000}}
+\DoxyCodeLine{00033\ \ \ \ \ uint8\_t\ \ enable\_flag;\ \textcolor{comment}{//\ flag\ that\ enables\ the\ motor}}
+\DoxyCodeLine{00034\ \}\ Motor;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ motor\_set\_duty\_cycle(Motor*\ motor,\ int32\_t\ doot);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{void}\ motor\_enable\_disable(Motor*\ motor,\ uint8\_t\ enable);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SRC\_MOTOR\_DRIVER\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,90 @@
+.TH "motor_driver.c" 3 "ME_507_Lab2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+motor_driver.c \- this file implements the \fBMotor\fP struct defined in \fBmotor_driver\&.h\fP to allow for pseudo object oriented programming motor control\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'motor_driver\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBmotor_set_duty_cycle\fP (\fBMotor\fP *motor, int32_t doot)"
+.br
+.ti -1c
+.RI "void \fBmotor_enable_disable\fP (\fBMotor\fP *motor, uint8_t enable)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+this file implements the \fBMotor\fP struct defined in \fBmotor_driver\&.h\fP to allow for pseudo object oriented programming motor control\&. 
+
+
+.PP
+\fBDate\fP
+.RS 4
+Apr 25, 2024 
+.RE
+.PP
+\fBAuthor\fP
+.RS 4
+Jared Sinasohn 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "void motor_enable_disable (\fBMotor\fP * motor, uint8_t enable)"
+Enables or disables motor based on user input
+.PP
+\fBParameters\fP
+.RS 4
+\fImotor,the\fP \fBMotor\fP struct to act upon 
+.br
+\fIenable,the\fP boolean of whether to enable or disable the motor with 1 being to enable and 0 being to disable\&. 
+.RE
+.PP
+if user wants to enable motor
+.PP
+First retrieve ARR to set motor to brake mode
+.PP
+Now set the correct motor pair to brake mode\&.
+.PP
+set the motor's enable flag to 1
+.PP
+if user wants to disable motor
+.PP
+set the motor's enable flag to 0
+.SS "void motor_set_duty_cycle (\fBMotor\fP * motor, int32_t doot)"
+This function implements the duty cycle setting of the motor\&. It takes in the motor struct and a duty cycle from -100 to 100 (though the function saturates values above and below these values)/\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fImotor,the\fP \fBMotor\fP struct to be operated on\&. 
+.br
+\fIdoot,the\fP duty cycle to be set to\&. 
+.RE
+.PP
+First, check if the motor is disabled
+.PP
+if the enable flag isn't set exit the function and do nothing\&. we are also using != 1 so if there is a stray value in memory, the motor doesn't accidentally enable\&.
+.PP
+Next, saturate the duty cycle just in case\&.
+.PP
+We need to get the auto reload value for the timer we are using signed value so we don't run into sign issues later
+.PP
+Now calculate the duty cycle in terms of the CCR value
+.PP
+now we need to set the motors to the correct duty cycles Forwards will be channels 1 and 3 for motors 1 and 2 respectively Backwards will be channels 2 and 4 for motors 1 and 2 respectively
+.PP
+the below CCR's are based on the logic table of the toshiba, setting motor\&. to brake mode if duty cycle is <0
+.PP
+if duty cycle >=0
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ME_507_Lab2 from the source code\&.

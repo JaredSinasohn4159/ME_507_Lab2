@@ -1,0 +1,148 @@
+\doxysection{main.\+c File Reference}
+\label{main_8c}\index{main.c@{main.c}}
+
+
+\+: Main program body  
+
+
+{\ttfamily \#include "{}main.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}motor\+\_\+driver.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ System\+Clock\+\_\+\+Config} (void)
+\begin{DoxyCompactList}\small\item\em System Clock Configuration. \end{DoxyCompactList}\item 
+void \textbf{ HAL\+\_\+\+UART\+\_\+\+Rx\+Cplt\+Callback} (UART\+\_\+\+Handle\+Type\+Def $\ast$huart)
+\item 
+void \textbf{ Error\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function is executed in case of error occurrence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\label{main_8c_a25fc663547539bc49fecc0011bd76ab5} 
+TIM\+\_\+\+Handle\+Type\+Def {\bfseries htim1}
+\item 
+\label{main_8c_aa9479c261d65eecedd3d9582f7f0f89c} 
+UART\+\_\+\+Handle\+Type\+Def {\bfseries huart2}
+\item 
+char \textbf{ char\+\_\+in}
+\item 
+char \textbf{ input\+\_\+code} [$\,$] = "{}iiiii"{}
+\item 
+int \textbf{ idx} = 0
+\item 
+char \textbf{ allowed\+\_\+numbers} [17] = "{}1234567890\+ABCDEF"{}
+\item 
+double \textbf{ pwm\+\_\+lvl}
+\item 
+char $\ast$ \textbf{ dummy\+\_\+ptr}
+\item 
+long \textbf{ input\+\_\+lvl}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Main program body 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2024 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+\doxysubsection{Function Documentation}
+\label{main_8c_a1730ffe1e560465665eb47d9264826f9} 
+\index{main.c@{main.c}!Error\_Handler@{Error\_Handler}}
+\index{Error\_Handler@{Error\_Handler}!main.c@{main.c}}
+\doxysubsubsection{Error\_Handler()}
+{\footnotesize\ttfamily void Error\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is executed in case of error occurrence. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\label{main_8c_ae494a9643f29b87d6d81e5264e60e57b} 
+\index{main.c@{main.c}!HAL\_UART\_RxCpltCallback@{HAL\_UART\_RxCpltCallback}}
+\index{HAL\_UART\_RxCpltCallback@{HAL\_UART\_RxCpltCallback}!main.c@{main.c}}
+\doxysubsubsection{HAL\_UART\_RxCpltCallback()}
+{\footnotesize\ttfamily void HAL\+\_\+\+UART\+\_\+\+Rx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{UART\+\_\+\+Handle\+Type\+Def $\ast$}]{huart }\end{DoxyParamCaption})}
+
+The callback function used when the uart between the user and the nucleo generates an interrupt. 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$huart} & The uart channel used to generate the interrupt \\
+\hline
+\end{DoxyParams}
+\label{main_8c_a70af21c671abfcc773614a9a4f63d920} 
+\index{main.c@{main.c}!SystemClock\_Config@{SystemClock\_Config}}
+\index{SystemClock\_Config@{SystemClock\_Config}!main.c@{main.c}}
+\doxysubsubsection{SystemClock\_Config()}
+{\footnotesize\ttfamily void System\+Clock\+\_\+\+Config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+System Clock Configuration. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+Configure the main internal regulator output voltage
+
+Initializes the RCC Oscillators according to the specified parameters in the RCC\+\_\+\+Osc\+Init\+Type\+Def structure.
+
+Initializes the CPU, AHB and APB buses clocks
+
+\doxysubsection{Variable Documentation}
+\label{main_8c_af7ca0c9b00450e764949cd036c007791} 
+\index{main.c@{main.c}!allowed\_numbers@{allowed\_numbers}}
+\index{allowed\_numbers@{allowed\_numbers}!main.c@{main.c}}
+\doxysubsubsection{allowed\_numbers}
+{\footnotesize\ttfamily char allowed\+\_\+numbers[$\,$] = "{}1234567890\+ABCDEF"{}}
+
+string of hexidecimal numbers -\/ the list of allowed characters the user can input \label{main_8c_affb8c4384064bb2f9207b82bf2e01e8b} 
+\index{main.c@{main.c}!char\_in@{char\_in}}
+\index{char\_in@{char\_in}!main.c@{main.c}}
+\doxysubsubsection{char\_in}
+{\footnotesize\ttfamily char char\+\_\+in}
+
+character user inputs \label{main_8c_aa3fab95649bc66c00b3559ce610d39e7} 
+\index{main.c@{main.c}!dummy\_ptr@{dummy\_ptr}}
+\index{dummy\_ptr@{dummy\_ptr}!main.c@{main.c}}
+\doxysubsubsection{dummy\_ptr}
+{\footnotesize\ttfamily char $\ast$ dummy\+\_\+ptr}
+
+a dummy pointer for when a function requires one that isnt used \label{main_8c_ae40354a1051342eb5a9db005715dcfa9} 
+\index{main.c@{main.c}!idx@{idx}}
+\index{idx@{idx}!main.c@{main.c}}
+\doxysubsubsection{idx}
+{\footnotesize\ttfamily int idx = 0}
+
+index of input\+\_\+code \label{main_8c_a33960ed5a30461a2a7255302b946ade5} 
+\index{main.c@{main.c}!input\_code@{input\_code}}
+\index{input\_code@{input\_code}!main.c@{main.c}}
+\doxysubsubsection{input\_code}
+{\footnotesize\ttfamily char input\+\_\+code[$\,$] = "{}iiiii"{}}
+
+the code the user has input \label{main_8c_a06cc2eb42fb9a09c8657fa55ecd625b6} 
+\index{main.c@{main.c}!input\_lvl@{input\_lvl}}
+\index{input\_lvl@{input\_lvl}!main.c@{main.c}}
+\doxysubsubsection{input\_lvl}
+{\footnotesize\ttfamily long input\+\_\+lvl}
+
+the pwm level the user input in hex \label{main_8c_adff6b4d4867bb768ccb8d899b2e742df} 
+\index{main.c@{main.c}!pwm\_lvl@{pwm\_lvl}}
+\index{pwm\_lvl@{pwm\_lvl}!main.c@{main.c}}
+\doxysubsubsection{pwm\_lvl}
+{\footnotesize\ttfamily double pwm\+\_\+lvl}
+
+pwm level printed for the user 

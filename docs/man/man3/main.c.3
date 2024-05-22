@@ -1,0 +1,136 @@
+.TH "main.c" 3 "ME_507_Lab2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+main.c \- : Main program body  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'main\&.h'\fP
+.br
+\fR#include <stdio\&.h>\fP
+.br
+\fR#include <stdlib\&.h>\fP
+.br
+\fR#include <string\&.h>\fP
+.br
+\fR#include 'motor_driver\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBSystemClock_Config\fP (void)"
+.br
+.RI "System Clock Configuration\&. "
+.ti -1c
+.RI "void \fBHAL_UART_RxCpltCallback\fP (UART_HandleTypeDef *huart)"
+.br
+.ti -1c
+.RI "void \fBError_Handler\fP (void)"
+.br
+.RI "This function is executed in case of error occurrence\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "TIM_HandleTypeDef \fBhtim1\fP"
+.br
+.ti -1c
+.RI "UART_HandleTypeDef \fBhuart2\fP"
+.br
+.ti -1c
+.RI "char \fBchar_in\fP"
+.br
+.ti -1c
+.RI "char \fBinput_code\fP [] = 'iiiii'"
+.br
+.ti -1c
+.RI "int \fBidx\fP = 0"
+.br
+.ti -1c
+.RI "char \fBallowed_numbers\fP [17] = '1234567890ABCDEF'"
+.br
+.ti -1c
+.RI "double \fBpwm_lvl\fP"
+.br
+.ti -1c
+.RI "char * \fBdummy_ptr\fP"
+.br
+.ti -1c
+.RI "long \fBinput_lvl\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+: Main program body 
+
+
+.PP
+\fBAttention\fP
+.RS 4
+
+.RE
+.PP
+Copyright (c) 2024 STMicroelectronics\&. All rights reserved\&.
+.PP
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component\&. If no LICENSE file comes with this software, it is provided AS-IS\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void Error_Handler (void)"
+
+.PP
+This function is executed in case of error occurrence\&. 
+.PP
+\fBReturn values\fP
+.RS 4
+\fINone\fP 
+.RE
+.PP
+
+.SS "void HAL_UART_RxCpltCallback (UART_HandleTypeDef * huart)"
+The callback function used when the uart between the user and the nucleo generates an interrupt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI*huart\fP The uart channel used to generate the interrupt 
+.RE
+.PP
+
+.SS "void SystemClock_Config (void)"
+
+.PP
+System Clock Configuration\&. 
+.PP
+\fBReturn values\fP
+.RS 4
+\fINone\fP 
+.RE
+.PP
+Configure the main internal regulator output voltage
+.PP
+Initializes the RCC Oscillators according to the specified parameters in the RCC_OscInitTypeDef structure\&.
+.PP
+Initializes the CPU, AHB and APB buses clocks
+.SH "Variable Documentation"
+.PP 
+.SS "char allowed_numbers[] = '1234567890ABCDEF'"
+string of hexidecimal numbers - the list of allowed characters the user can input 
+.SS "char char_in"
+character user inputs 
+.SS "char * dummy_ptr"
+a dummy pointer for when a function requires one that isnt used 
+.SS "int idx = 0"
+index of input_code 
+.SS "char input_code[] = 'iiiii'"
+the code the user has input 
+.SS "long input_lvl"
+the pwm level the user input in hex 
+.SS "double pwm_lvl"
+pwm level printed for the user 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for ME_507_Lab2 from the source code\&.

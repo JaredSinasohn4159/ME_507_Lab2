@@ -1,0 +1,84 @@
+\doxysection{motor\+\_\+driver.\+c File Reference}
+\label{motor__driver_8c}\index{motor\_driver.c@{motor\_driver.c}}
+
+
+this file implements the \doxyref{Motor}{p.}{struct_motor} struct defined in \doxyref{motor\+\_\+driver.\+h}{p.}{motor__driver_8h} to allow for pseudo object oriented programming motor control.  
+
+
+{\ttfamily \#include "{}motor\+\_\+driver.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ motor\+\_\+set\+\_\+duty\+\_\+cycle} (\textbf{ Motor} $\ast$motor, int32\+\_\+t doot)
+\item 
+void \textbf{ motor\+\_\+enable\+\_\+disable} (\textbf{ Motor} $\ast$motor, uint8\+\_\+t enable)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+this file implements the \doxyref{Motor}{p.}{struct_motor} struct defined in \doxyref{motor\+\_\+driver.\+h}{p.}{motor__driver_8h} to allow for pseudo object oriented programming motor control. 
+
+\begin{DoxyDate}{Date}
+Apr 25, 2024 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Jared Sinasohn 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\label{motor__driver_8c_a19a936200405c108263bf30178dd4655} 
+\index{motor\_driver.c@{motor\_driver.c}!motor\_enable\_disable@{motor\_enable\_disable}}
+\index{motor\_enable\_disable@{motor\_enable\_disable}!motor\_driver.c@{motor\_driver.c}}
+\doxysubsubsection{motor\_enable\_disable()}
+{\footnotesize\ttfamily void motor\+\_\+enable\+\_\+disable (\begin{DoxyParamCaption}\item[{\textbf{ Motor} $\ast$}]{motor,  }\item[{uint8\+\_\+t}]{enable }\end{DoxyParamCaption})}
+
+Enables or disables motor based on user input
+
+
+\begin{DoxyParams}{Parameters}
+{\em motor,the} & \doxyref{Motor}{p.}{struct_motor} struct to act upon \\
+\hline
+{\em enable,the} & boolean of whether to enable or disable the motor with 1 being to enable and 0 being to disable. \\
+\hline
+\end{DoxyParams}
+if user wants to enable motor
+
+First retrieve ARR to set motor to brake mode
+
+Now set the correct motor pair to brake mode.
+
+set the motor\textquotesingle{}s enable flag to 1
+
+if user wants to disable motor
+
+set the motor\textquotesingle{}s enable flag to 0\label{motor__driver_8c_a79432d503882140b2011c6fcd9005669} 
+\index{motor\_driver.c@{motor\_driver.c}!motor\_set\_duty\_cycle@{motor\_set\_duty\_cycle}}
+\index{motor\_set\_duty\_cycle@{motor\_set\_duty\_cycle}!motor\_driver.c@{motor\_driver.c}}
+\doxysubsubsection{motor\_set\_duty\_cycle()}
+{\footnotesize\ttfamily void motor\+\_\+set\+\_\+duty\+\_\+cycle (\begin{DoxyParamCaption}\item[{\textbf{ Motor} $\ast$}]{motor,  }\item[{int32\+\_\+t}]{doot }\end{DoxyParamCaption})}
+
+This function implements the duty cycle setting of the motor. It takes in the motor struct and a duty cycle from -\/100 to 100 (though the function saturates values above and below these values)/.
+
+
+\begin{DoxyParams}{Parameters}
+{\em motor,the} & \doxyref{Motor}{p.}{struct_motor} struct to be operated on. \\
+\hline
+{\em doot,the} & duty cycle to be set to. \\
+\hline
+\end{DoxyParams}
+First, check if the motor is disabled
+
+if the enable flag isn\textquotesingle{}t set exit the function and do nothing. we are also using != 1 so if there is a stray value in memory, the motor doesn\textquotesingle{}t accidentally enable.
+
+Next, saturate the duty cycle just in case.
+
+We need to get the auto reload value for the timer we are using signed value so we don\textquotesingle{}t run into sign issues later
+
+Now calculate the duty cycle in terms of the CCR value
+
+now we need to set the motors to the correct duty cycles Forwards will be channels 1 and 3 for motors 1 and 2 respectively Backwards will be channels 2 and 4 for motors 1 and 2 respectively
+
+the below CCR\textquotesingle{}s are based on the logic table of the toshiba, setting motor. to brake mode if duty cycle is $<$0
+
+if duty cycle $>$=0

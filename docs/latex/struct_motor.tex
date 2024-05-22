@@ -1,0 +1,47 @@
+\doxysection{Motor Class Reference}
+\label{struct_motor}\index{Motor@{Motor}}
+
+
+An implementation of a motor driver using a struct to emulate Object Oriented Programming. The motor has 4 parameters, timer which indicates the timer to be used to run the motor, channels, which indicates the channels to be used to run the motor, duty\+\_\+cycle, the duty cycle to run the motor at, and enable\+\_\+flag, which determines if the motor is allowed to run.  
+
+
+
+
+{\ttfamily \#include $<$motor\+\_\+driver.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\label{struct_motor_a30b15aedcc086ca7abb69f7ac012ce64} 
+TIM\+\_\+\+Handle\+Type\+Def $\ast$ {\bfseries timer}
+\item 
+\label{struct_motor_a0057a7f2eb00a01a4b11243fd5bf2f8d} 
+uint8\+\_\+t {\bfseries channels}
+\item 
+\label{struct_motor_ada18bd121f999df49f9985ab76ac0c9c} 
+int32\+\_\+t {\bfseries duty\+\_\+cycle}
+\item 
+\label{struct_motor_a5e1d793fee56dddbdc6a6ebe8ccfcd3b} 
+uint8\+\_\+t {\bfseries enable\+\_\+flag}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An implementation of a motor driver using a struct to emulate Object Oriented Programming. The motor has 4 parameters, timer which indicates the timer to be used to run the motor, channels, which indicates the channels to be used to run the motor, duty\+\_\+cycle, the duty cycle to run the motor at, and enable\+\_\+flag, which determines if the motor is allowed to run. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & The microcontroller timer to use to control the pwm in the motor. This is a timer pointer. \\
+\hline
+{\em channels} & The channels the PWM signal should run on. 1 corresponds to 1 and 2, and 2 corresponds to 3 and 4. \\
+\hline
+{\em duty\+\_\+cycle} & The duty cycle of the motor from -\/ARR to ARR, which is 1000 \\
+\hline
+{\em enable\+\_\+flag} & The flag which indicates whether or not the motor should be allowed to run. A zero means the motor is disabled and a one means the motor is enabled. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ motor\+\_\+driver.\+h}\end{DoxyCompactItemize}
